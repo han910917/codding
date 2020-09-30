@@ -2,6 +2,8 @@ package com.springboot.mongodb.service;
 
 import com.springboot.mongodb.domain.Student;
 
+import java.util.Optional;
+
 /**
  * @Description
  * @Author hgm
@@ -10,4 +12,6 @@ import com.springboot.mongodb.domain.Student;
 public interface StudentService {
 
     Student addStudent(Student student);
+
+    Optional<Student> getStudent(String id);
 }

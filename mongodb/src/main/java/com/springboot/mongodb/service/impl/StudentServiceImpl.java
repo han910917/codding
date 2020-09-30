@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 /**
  * @Description
  * @Author hgm
@@ -18,8 +20,14 @@ public class StudentServiceImpl implements StudentService {
     @Autowired
     private StudentRepository studentRepository;
 
+    @Override
     @Transactional(rollbackFor = Exception.class)
     public Student addStudent(Student student) {
         return studentRepository.save(student);
+    }
+
+    @Override
+    public Optional<Student> getStudent(String id) {
+        return studentRepository.findById(id);
     }
 }

@@ -5,10 +5,9 @@ import com.springboot.mongodb.service.StudentService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 /**
  * @Description
@@ -27,5 +26,12 @@ public class StudentController {
     @PostMapping("/add")
     public Student addStudent(@RequestBody Student student){
         return studentService.addStudent(student);
+    }
+
+    @ApiOperation("获取数据")
+    @PostMapping("/get")
+    @ResponseBody
+    public Optional<Student> getStudent(String id){
+        return studentService.getStudent(id);
     }
 }
