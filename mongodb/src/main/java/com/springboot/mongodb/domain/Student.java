@@ -2,7 +2,9 @@ package com.springboot.mongodb.domain;
 
 import com.sun.istack.internal.NotNull;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 
 /**
@@ -11,6 +13,8 @@ import org.springframework.data.annotation.Id;
  * @Time 2020/9/27 17:58
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Student {
 
     @Id
