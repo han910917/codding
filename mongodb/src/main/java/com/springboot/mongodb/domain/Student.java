@@ -1,6 +1,7 @@
 package com.springboot.mongodb.domain;
 
 import com.sun.istack.internal.NotNull;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 
@@ -20,6 +21,7 @@ public class Student {
 
     private Integer age;
 
+    @ApiModelProperty(value = "名称")
     private String name;
 
     private String gender;
