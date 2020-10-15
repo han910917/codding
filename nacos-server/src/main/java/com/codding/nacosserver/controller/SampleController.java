@@ -20,8 +20,11 @@ public class SampleController {
     @Value("${user.age}")
     private int age;
 
+    @Value("${paths}")
+    private String paths;
+
     @GetMapping("/getUser")
     public Object getUser(){
-        return "name = " + userName + "  age = " + age;
+        return "name=" + userName + "  age=" + age + "  paths=" + paths;
     }
 }

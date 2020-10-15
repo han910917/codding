@@ -1,7 +1,12 @@
 spring:
   application:
-    name: nccos-config
+    name: nacos-config
+  profiles:
+    active: dev
   cloud:
     nacos:
       config:
         server-addr: 127.0.0.1:8848
+        # 修改配置格式 对应新建配置文件时选择的配置格式 默认properties\
+        # nacos的dataId默认的扩展名为properties
+        file-extension: yaml
