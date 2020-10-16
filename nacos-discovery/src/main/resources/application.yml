@@ -1,0 +1,8 @@
+server:
+  port: 8086
+spring:
+  application:
+    name: nacos-producer
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
