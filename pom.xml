@@ -24,6 +24,7 @@
         <module>nacos-server</module>
         <module>nacos-discovery</module>
         <module>nacos-consumer</module>
+        <module>sentinel</module>
     </modules>
 
     <dependencies>
