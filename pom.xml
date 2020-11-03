@@ -27,6 +27,7 @@
         <module>nacos-discovery</module>
         <module>nacos-consumer</module>
         <module>sentinel</module>
+        <module>feign</module>
     </modules>
 
     <dependencies>
