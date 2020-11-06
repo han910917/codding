@@ -28,6 +28,8 @@
         <module>nacos-consumer</module>
         <module>sentinel</module>
         <module>feign</module>
+        <module>cache</module>
+        <module>web</module>
     </modules>
 
     <dependencies>
