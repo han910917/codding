@@ -5,9 +5,11 @@ import com.codding.cache.template.MemcacheClient;
 import lombok.extern.slf4j.Slf4j;
 import net.rubyeye.xmemcached.MemcachedClient;
 import net.rubyeye.xmemcached.MemcachedClientBuilder;
+import net.rubyeye.xmemcached.MemcachedOptimizer;
 import net.rubyeye.xmemcached.XMemcachedClientBuilder;
 import net.rubyeye.xmemcached.command.BinaryCommandFactory;
 import net.rubyeye.xmemcached.impl.KetamaMemcachedSessionLocator;
+import net.rubyeye.xmemcached.utils.AddrUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -31,10 +33,10 @@ public class MemcacheAuthConfigure {
     private MemcacheProperties memcacheProperties;
 
     @Bean
-    public MemcachedClient memcachedClient(){
+    public MemcachedClient getMemcachedClient(){
         MemcachedClient memcachedClient = null;
         try {
-            MemcachedClientBuilder builder = new XMemcachedClientBuilder();
+            MemcachedClientBuilder builder = new XMemcachedClientBuilder(AddrUtil.getAddresses(memcacheProperties.getServers()));
             builder.setFailureMode(false);
             builder.setSanitizeKeys(memcacheProperties.getSanitizeKeys());
             builder.setConnectionPoolSize(memcacheProperties.getPoolSize());
@@ -50,7 +52,7 @@ public class MemcacheAuthConfigure {
     }
 
     @Bean
-    public MemcacheClient memcacheClient(MemcachedClient memcachedClient){
-        return new MemcacheClient(memcachedClient);
+    public MemcacheClient memcacheClient(MemcachedClient getMemcachedClient){
+        return new MemcacheClient(getMemcachedClient);
     }
 }
